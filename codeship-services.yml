@@ -1,0 +1,18 @@
+demo:
+  build:
+    dockerfile: Dockerfile
+    image: dkcodeship/es_test_demo
+  links:
+    - elasticsearch
+    - redis
+  environment:
+    REDIS_HOST: redis
+    REDIS_PORT: 6379
+    ELASTICSEARCH_URL: http://elasticsearch:9200
+
+elasticsearch:
+  image: elasticsearch:5.5.2
+  mem_limit: 2g
+
+redis:
+  image: redis:3.2.6

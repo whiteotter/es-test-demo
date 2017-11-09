@@ -1,0 +1,7 @@
+- name: test_connection_from_main_app_to_redis
+  service: demo
+  command: /bin/bash -c 'redis-cli -h $REDIS_HOST -p $REDIS_PORT ping'
+
+- name: test_connection_from_main_app_to_elasticsearch
+  service: demo
+  command: /bin/bash -c 'sleep 20 && curl $ELASTICSEARCH_URL'
